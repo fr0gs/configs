@@ -50,7 +50,7 @@ alias reiniciar='sudo systemctl reboot -i'
 alias apagar='sudo shutdown -h now'
 alias pacman='sudo pacman'
 
-#Manpages en colores
+#Manpages en colores rojos
 man() {
 	env \
 	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
