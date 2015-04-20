@@ -41,7 +41,7 @@ public class Main {
 			try (BufferedReader br = new BufferedReader(fr)) {
 				String line;	    	   
 			    int line_count = 0;
-			    
+			    double avg_tput = 0;
 			    while ((line = br.readLine()) != null) {
 			    	line_count++;
 			    	
@@ -52,6 +52,7 @@ public class Main {
 			    	
 			    	temp = line.split(delimiter);
 			    	poskey = temp[1]; //second column
+			    	avg_tput += Double.parseDouble(poskey); 
 			    	delimiter = "\\.";
 			    	temp = poskey.split(delimiter);
 			    	poskey = temp[0];
@@ -73,6 +74,9 @@ public class Main {
 			    	DecimalFormat numberFormat = new DecimalFormat("#.00");
 			    	System.out.println("Key = " + entry.getKey() + " -- Percentage : " + numberFormat.format(percent));
 			    }
+			    avg_tput = avg_tput/line_count;
+			    
+			    System.out.println("Average throughput = " + avg_tput);
 			}
 			catch (IOException ioe) {
 				System.err.println("tputstat: input/output error");
