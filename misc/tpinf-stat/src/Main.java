@@ -72,7 +72,7 @@ public class Main {
 			    	double d = (double) val;
 			    	double percent =( d * 100.0)/(double)line_count;
 			    	DecimalFormat numberFormat = new DecimalFormat("#.00");
-			    	System.out.println("Key = " + entry.getKey() + " -- Percentage : " + numberFormat.format(percent) + " %");
+			    	System.out.println("Key = " + entry.getKey() + " -- Ocurrences : " + val + " -- Percentage : " + numberFormat.format(percent) + " %");
 			    }
 			    avg = avg/line_count;
 			    
