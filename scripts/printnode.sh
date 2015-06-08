@@ -53,7 +53,7 @@ do
 					"stderr")
 						if [ -s $DIR$file$SLASH$fich ];
 						then
-							echo -n -e "  ${PURPLE}STDERR: ${NC}"
+							echo -e "  ${PURPLE}STDERR: ${NC}"
 							cat $DIR$file$SLASH$fich
 						else
 							echo -e "  ${PURPLE}STDERR: ${NC}"
