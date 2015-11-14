@@ -60,6 +60,22 @@ sudo apt-get install texmaker
 ```
 
 ## 5. Dropbox
+## 6. Skype
+
+Steps directly copypasted from Debian Wiki.
+
+```
+sudo dpkg --add-architecture i386
+sudo aptitude update
+sudo aptitude install libc6:i386 libqt4-dbus:i386 libqt4-network:i386 libqt4-xml:i386 libqtcore4:i386 libqtgui4:i386 libqtwebkit4:i386 libstdc++6:i386 libx11-6:i386 libxext6:i386 libxss1:i386 libxv1:i386 libssl1.0.0:i386 libpulse0:i386 libasound2-plugins:i386
+wget -O skype-install.deb http://www.skype.com/go/getskype-linux-deb
+sudo dpkg -i skype-install.deb
+```
+
+## 7. Cpulimit
+
+Install scripts in my repo: [https://github.com/fr0gs/configs/tree/master/debian-fresh-install/cpulimit-own](https://github.com/fr0gs/configs/tree/master/debian-fresh-install/cpulimit-own)
+
 
 
 ## Credits
