@@ -6,7 +6,7 @@
 # Variables
 CPU_LIMIT=65       	# Maximum percentage CPU consumption by each PID
 DAEMON_INTERVAL=8  	# Daemon check interval in seconds
-BLACK_PROCESSES_LIST="google-chrome|chrome|firefox|dropbox|thunderbird|spotify|atom"   # Limit only processes defined in this variable. If variable is empty (default) all violating processes are limited.
+BLACK_PROCESSES_LIST="skype|google-chrome|chrome|firefox|dropbox|thunderbird|spotify|atom"   # Limit only processes defined in this variable. If variable is empty (default) all violating processes are limited.
 WHITE_PROCESSES_LIST=   # Limit all processes except processes defined in this variable. If variable is empty (default) all violating processes are limited.
 
 # Check if one of the variables BLACK_PROCESSES_LIST or WHITE_PROCESSES_LIST is defined.
