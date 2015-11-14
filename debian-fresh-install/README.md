@@ -41,8 +41,19 @@ sudo apt-get install firmware-linux-nonfree libgl1-mesa-dri xserver-xorg-video-a
 This will permit to enable dual-screen mode.
 
 
-## History
-TODO: Write history
+## Install Google Chrome
+
+1. Previously install needed packages:
+
+```
+sudo apt-get install libappindicator1 libcurl3
+sudo apt-get install -f
+```
+
+2. Download [Google Chrome](https://www.google.es/chrome/browser/desktop/index.html) and install it.
+
+
+
 ## Credits
 - Credits to https://gist.github.com/zenorocha for the Markdown template.
 
