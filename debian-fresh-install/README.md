@@ -1,10 +1,10 @@
-# ${1:Debian fresh installation task list}
+# Debian Fresh Installation Task List
 
 This documents serves as a series of guidelines that remind me what to do and what
 to avoid when I do a fresh install of a Debian/Ubuntu like distribution.
 
 
-## Install ATI drivers
+## 1. ATI drivers
 
 The **fglrx-driver** is not compatible with my ATI card:
 
@@ -41,7 +41,7 @@ sudo apt-get install firmware-linux-nonfree libgl1-mesa-dri xserver-xorg-video-a
 This will permit to enable dual-screen mode.
 
 
-## Install Google Chrome
+## 2. Google Chrome
 
 1. Previously install needed packages:
 
@@ -52,8 +52,15 @@ sudo apt-get install -f
 
 2. Download [Google Chrome](https://www.google.es/chrome/browser/desktop/index.html) and install it.
 
+## 3. Github Atom Editor
+## 4. TexMaker & texlive-extra
+
+```
+sudo apt-get install texmaker
+```
+
+## 5. Dropbox
 
 
 ## Credits
 - Credits to https://gist.github.com/zenorocha for the Markdown template.
-
