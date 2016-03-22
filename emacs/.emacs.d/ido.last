@@ -1,0 +1,62 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/esteban/gits/listly/app/" . "utils/")
+ ("/home/esteban/gits/listly/tests/unit/" . "utils/")
+ ("/home/esteban/gits/listly/tests/" . "unit/")
+ ("/home/esteban/gits/listly/" . "app/")
+ ("/home/" . "esteban/")
+ ("/" . "home/")
+ ("/home/esteban/" . "Documents/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/esteban/gits/reactly/"
+ "/home/esteban/gits/listly/app/utils/"
+ "/home/esteban/gits/listly/tests/unit/utils/"
+ "/home/esteban/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "index.android.js"
+ ".watchmanconfig"
+ "resize-image-canvas.coffee"
+ "resize-image-canvas-test.coffee"
+ "TUTORIAL"
+ ".ovftool.ssldb"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/esteban/gits/reactly/" (22250 42341 314893 534000) "./" "index.ios.js" "package.json" ".watchmanconfig" "../" "ios/" "node_modules/" "index.android.js" "android/" ".flowconfig" ".git/" ".gitignore")
+
+ ("/home/esteban/gits/listly/app/utils/" (22238 59037 394885 802000) "lazy-array.coffee" "./" "timer.coffee" "i18n-default-labels.coffee" "mob.coffee" "generic-dispatcher.coffee" "query-result-list.coffee" "yes-promise.coffee" "all-promises.coffee" "based-path.coffee" "object-includes.coffee" "object-values.coffee" "loading-icon-timeout.coffee" "logger.coffee" "merge.coffee" "expBackOffPromise.coffee" "array-equals.coffee" "no-promise.coffee" "../" "temp-item.coffee" "result-list.coffee" "google-leaflet-layer.coffee" "simple-leaflet-marker-layer.coffee" "service-local-store.coffee" "lazy-store/" "future-time.coffee" "handle-promise.coffee" "resize-image-canvas.coffee" "update-array.coffee" "array.coffee" "named-promise.coffee" "computed.coffee" "generate-id.coffee" "leaflet-tilelayers.coffee" "mutable-object-transformer.coffee" "paginate.coffee" "expand-long-keyed-object.coffee" "object-equals.coffee" "relation-list.coffee" "feature-flags.coffee" "computed-item-search.coffee" "semaphore.coffee" "string-starts-with.coffee" "quality-trigger.coffee" "filesystem.coffee" "marr.coffee" "commands/")
+
+ ("/home/esteban/gits/listly/tests/unit/utils/" (22239 62580 562620 62000) "i18n-default-labels-test.coffee" "paginate-test.coffee" "query-result-list-test.coffee" "computed-item-search-test.coffee" "object-equals-test.coffee" "./" "lazy-array-test.coffee" "future-time-test.coffee" "logger-test.coffee" "quality-trigger-test.coffee" "object-includes-test.coffee" "resize-image-canvas-test.coffee" "service-local-store-test.coffee" "relation-list-test.coffee" "feature-flags-test.coffee" "expand-long-keyed-object-test.coffee" "named-promise-test.coffee" "string-starts-with-test.coffee" "merge-test.coffee" "result-list-test.coffee" "timer-test.coffee" "temp-item-test.coffee" "../" "handle-promise-test.coffee" ".#resize-image-canvas-test.coffee" "lazy-store/" "mutable-object-transformer-test.coffee" "update-array-test.coffee" "generate-id-test.coffee" "yes-promise-test.coffee" "simple-leaflet-marker-layer-test.coffee" "based-path-test.coffee" "object-values-test.coffee" "generic-dispatcher-test.coffee" "array-test.coffee" "all-promises-test.coffee" "array-equals-test.coffee" "marr-test.coffee" "mob-test.coffee" "filesystem-test.coffee" "no-promise-test.coffee" "update-lazy-array-test.coffee" "loading-icon-timeout-test.coffee" "computed-test.coffee" "semaphore-test.coffee" "commands/")
+
+ ("/home/esteban/gits/listly/tests/unit/helpers/" (22187 28485 555671 396000) "./" "ifall-test.coffee" "../")
+
+ ("/home/esteban/gits/listly/tests/unit/" (22238 46973 78783 145000) "serializers/" "./" "services/" "routes/" "json-templates/" "controllers/" "utils/" "initializers/" "mixins/" "helpers/" "../" "components/" ".gitkeep" "views/" "models/")
+
+ ("/home/esteban/gits/listly/tests/" (22187 28485 551671 396000) "./" "test-helper.js" "unit/" "helpers/" "../" ".jshintrc" "index.html")
+
+ ("/home/esteban/gits/listly/app/" (22187 28485 547671 396000) "mocks/" "serializers/" "./" "services/" "routes/" "json-templates/" "templates/" "app.js" "controllers/" "utils/" "initializers/" "mixins/" "transforms/" "helpers/" "../" "transitions.coffee" "components/" "shims/" "index.html" "models/" "router.coffee" "styles/")
+
+ ("/home/esteban/gits/listly/" (22238 46973 118783 145000) "listly.sublime-project" "./" ".ember-cli" "listly.sublime-workspace" "package.json" ".watchmanconfig" "package.sublime-workspace" "../" "README.md" "docker/" "testem.json" ".bowerrc" "tmp/" ".jshintrc" "vendor/" "node_modules/" "Brocfile.js" "dist/" "config/" "app/" "bower.json" ".editorconfig" ".git/" "tests/" "public/" ".gitignore" ".travis.yml" "bower_components/")
+
+ ("/home/esteban/" (22219 5012 143078 771000) ".viminfo" ".ssh/" ".ovftool.ssldb" ".dbus/" "Music/" ".npm/" "vmware/" "Videos/" "./" "Public/" "Release.key" ".ovftool.ssldb~" ".config/" "VirtualBox VMs/" ".cache/" ".gnome/" ".thunderbird/" "../" ".gnome2_private/" ".bash_logout" ".bashrc" "Downloads/" ".atom/" ".node-gyp/" "Desktop/" "Templates/" "Documents/" ".emacs" ".smex-items" ".ICEauthority" ".gconf/" "gits/" ".gksu.lock" ".vimrc" ".emacs.d/" ".recently-used.xbel" ".Skype/" ".bash_history" ".gnupg/" ".local/" ".vim/" ".subversion/" ".vmware/" "Pictures/" ".mozilla/" ".gnome2/" ".gitconfig" ".pki/" ".profile")
+
+ ("/bin/" (22195 12328 476331 939000) "ntfs-3g" "loginctl" "mountpoint" "dash" "dd" "more" "pwd" "ntfscluster" "date" "hciconfig" "zcat" "fusermount" "systemd-escape" "mkdir" "loadkeys" "sh" "systemd-tty-ask-password-agent" "setfont" "bzegrep" "./" "tar" "gunzip" "systemd-notify" "bash" "true" "ntfsls" "bzless" "bzmore" "fgconsole" "bzdiff" "lsmod" "uncompress" "run-parts" "lesspipe" "rm" "bzip2" "mv" "zdiff" "openvt" "ip" "nc.traditional" "which" "journalctl" "false" "readlink" "cp" "bzcmp" "setupcon" "ntfsmove" "ntfswipe" "ntfsfallocate" "ntfs-3g.usermap" "df" "findmnt" "systemd-tmpfiles" "mount" "ln" "ntfs-3g.probe" "znew" "umount" "hostname" "dumpkeys" "tailf" "machinectl" "ntfscat" "systemctl" "ntfsinfo" "ntfsfix" "pidof" "bzcat" "bzexe" "less" "gzexe" "systemd-machine-id-setup" "bzfgrep" "bzgrep" "bzip2recover" "../" "stty" "echo" "unicode_start" "nisdomainname" "cat" "netstat" "kbd_mode" "ntfstruncate" "sh.distrib" "grep" "zgrep" "tempfile" "mktemp" "lessfile" "egrep" "zfgrep" "ping" "ntfs-3g.secaudit" "cpio" "mt-gnu" "systemd-ask-password" "open" "ls" "chgrp" "fuser" "sed" "netcat" "zcmp" "vmmouse_detect" "login" "setfacl" "wdctl" "vdir" "zmore" "systemd-inhibit" "sleep" "chvt" "ulockmgr_server" "kmod" "nc" "chacl" "getfacl" "ypdomainname" "touch" "systemd" "zegrep" "zless" "mknod" "udevadm" "dmesg" "chown" "rnano" "lowntfs-3g" "ss" "nano" "lsblk" "mt" "lesskey" "dnsdomainname" "rbash" "sync" "busybox" "uname" "chmod" "dir" "zforce" "ntfscmp" "kill" "rmdir" "ps" "su" "ping6" "lessecho" "fgrep" "domainname" "gzip" "bunzip2")
+
+ ("/home/esteban/Downloads/" (22219 4780 199076 797000) "frog.png" "VMware-ovftool-4.0.0-2301625-lin.x86_64.bundle" "cat.png" "./" "the-future-of-javascript-2016-and-beyond.pdf" ".#TUTORIAL" "abc.txt" "unetbootin-linux64-613.bin" "../" "589.jpg" "Vmware_Templates/" "268848.png" "asdoak.png" "avatar-small.png" "en_windows_8.1_enterprise_with_update_x64_dvd_6054382.iso" "virtualbox-5.0_5.0.14-105127-Debian-jessie_amd64.deb")
+
+ ("/home/esteban/Documents/" (22214 56361 938310 226000) "./" "../" ".emacs" "rock-and-roll-with-emberjs-20151123.pdf" "emacs.d.tar.gz" "ember-cli-101.pdf")
+
+ ("/home/" (22122 60913 803226 609000) "./" "esteban/" "../")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
