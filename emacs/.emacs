@@ -129,6 +129,11 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
+;; neotree (tree view)
+(add-to-list 'load-path "/some/path/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
 ;; ember-mode
 ;(add-to-list  'auto-mode-alist '("\\.coffee\\'" . ember-mode))
 ;(add-to-list  'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
