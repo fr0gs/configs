@@ -9,7 +9,59 @@
 	     '("marmalade". "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
 	     '("gnu" . "http://elpa.gnu.org/packages/") t)
+
 (package-initialize)
+
+;; ido-mode
+;; fancy buffer switching
+(require 'ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(setq ido-enable-flex-matching t)
+
+;; smex
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; neotree (tree view)
+;(add-to-list 'load-path "/some/path/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+
+(add-hook 'ido-setup-hook 
+          (lambda () 
+            (define-key ido-completion-map [tab] 'ido-complete)))
+
+(add-hook 'ido-setup-hook 
+    (lambda () 
+      (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
+
+
+(defun ensure-package-installed (&rest packages)
+  "Assure every package is installed, ask for installation if it’s not. 
+   Return a list of installed packages or nil for every skipped package."
+  (mapcar
+   (lambda (package)
+     ;; (package-installed-p 'evil)
+     (if (package-installed-p package)
+         nil
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+           (package-install package)
+         package)))
+   packages))
+
+;; make sure to have downloaded archive description.
+;; Or use package-archive-contents as suggested by Nicolas Dudebout
+(or (file-exists-p package-user-dir)
+    (package-refresh-contents))
+
+;; List of packages to be verified and installed
+;; goes here automatically
+(ensure-package-installed 'magit 'ido 'smex 'neotree 'suscolors-theme) ;  --> (nil nil) if iedit and magit are already installed
+
 
 (defun my-enable-minor-modes (&optional programming)
    "Enables the following minor modes."
@@ -32,19 +84,6 @@
 (add-hook 'ttl-mode 'my-enable-minor-modes)
 (add-hook 'sparql-mode 'my-enable-minor-modes)
 
-;; fancy buffer switching
-;; ido-mode
-(require 'ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(setq ido-enable-flex-matching t)
-(add-hook 'ido-setup-hook 
-          (lambda () 
-            (define-key ido-completion-map [tab] 'ido-complete)))
-
-(add-hook 'ido-setup-hook 
-    (lambda () 
-      (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
 
 (defun ido-smart-select-text ()
     "Select the current completed item.  Do NOT descend into directories."
@@ -116,23 +155,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; ido-mode
-(require 'ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(setq ido-enable-flex-matching t)
-
-;; smex
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
-;; neotree (tree view)
-(add-to-list 'load-path "/some/path/neotree")
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
 
 ;; ember-mode
 ;(add-to-list  'auto-mode-alist '("\\.coffee\\'" . ember-mode))
