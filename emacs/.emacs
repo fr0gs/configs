@@ -30,6 +30,8 @@
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
+;; js2-mode default for javascript files
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (add-hook 'ido-setup-hook 
           (lambda () 
@@ -60,7 +62,7 @@
 
 ;; List of packages to be verified and installed
 ;; goes here automatically
-(ensure-package-installed 'magit 'ido 'smex 'neotree 'suscolors-theme) ;  --> (nil nil) if iedit and magit are already installed
+(ensure-package-installed 'magit 'ido 'smex 'neotree 'suscolors-theme 'js2-mode 'web-mode) ;  --> (nil nil) if iedit and magit are already installed
 
 
 (defun my-enable-minor-modes (&optional programming)
