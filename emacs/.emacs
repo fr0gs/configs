@@ -1,7 +1,10 @@
+;; prompt for name of a package in 'available' status, downloads and installs it
 (package-initialize) 
 
+;; remove all the initial blabla messages
 (setq inhibit-startup-message t)
 
+;; add ELPA package archive package
 (require 'package)
 (add-to-list 'package-archives
             '("melpa" . "http://melpa.org/packages/") t)
@@ -10,7 +13,6 @@
 (add-to-list 'package-archives
 	     '("gnu" . "http://elpa.gnu.org/packages/") t)
 
-(package-initialize)
 
 ;; ido-mode
 ;; fancy buffer switching
@@ -33,9 +35,9 @@
 ;; js2-mode default for javascript files
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-(add-hook 'ido-setup-hook 
-          (lambda () 
-            (define-key ido-completion-map [tab] 'ido-complete)))
+;; I am not sure if I need this, check it out later
+(smart-tabs-advice js2-indent-line js2-basic-offset)
+
 
 (add-hook 'ido-setup-hook 
     (lambda () 
@@ -62,8 +64,16 @@
 
 ;; List of packages to be verified and installed
 ;; goes here automatically
-(ensure-package-installed 'magit 'ido 'smex 'neotree 'suscolors-theme 'js2-mode 'web-mode) ;  --> (nil nil) if iedit and magit are already installed
-
+(ensure-package-installed
+ 'magit
+ 'ido
+ 'smex
+ 'neotree
+ 'suscolors-theme
+ 'js2-mode
+ 'smart-tabs-mode
+ 'web-mode
+ 'queue) 
 
 (defun my-enable-minor-modes (&optional programming)
    "Enables the following minor modes."
@@ -150,7 +160,10 @@
  '(custom-safe-themes
    (quote
     ("0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
- '(ember-keymap-prefix "c"))
+ '(ember-keymap-prefix "c")
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -163,3 +176,6 @@
 ;(add-to-list  'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
 
 (global-set-key (kbd "C-c s") 'magit-status)
+
+;; disable auto indenting
+(setq-default indent-tabs-mode nil)
