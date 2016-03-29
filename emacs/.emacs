@@ -1,6 +1,3 @@
-; prompt for name of a package in 'available' status, downloads and installs it
-(package-initialize) 
-
 ;; remove all the initial blabla messages
 (setq inhibit-startup-message t)
 
@@ -13,6 +10,9 @@
 (add-to-list 'package-archives
 	     '("gnu" . "http://elpa.gnu.org/packages/") t)
 
+;; prompt for name of a package in 'available' status, downloads and installs it
+;; curiously, if this call goes before 
+(package-initialize)
 
 ;; ido-mode
 ;; fancy buffer switching
