@@ -1,4 +1,4 @@
-;; prompt for name of a package in 'available' status, downloads and installs it
+; prompt for name of a package in 'available' status, downloads and installs it
 (package-initialize) 
 
 ;; remove all the initial blabla messages
@@ -35,9 +35,6 @@
 ;; js2-mode default for javascript files
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-;; I am not sure if I need this, check it out later
-(smart-tabs-advice js2-indent-line js2-basic-offset)
-
 
 (add-hook 'ido-setup-hook 
     (lambda () 
@@ -71,9 +68,10 @@
  'neotree
  'suscolors-theme
  'js2-mode
- 'smart-tabs-mode
  'web-mode
- 'queue) 
+ 'queue
+ 'handlebars-mode
+ 'restart-emacs) 
 
 (defun my-enable-minor-modes (&optional programming)
    "Enables the following minor modes."
@@ -179,3 +177,6 @@
 
 ;; disable auto indenting
 (setq-default indent-tabs-mode nil)
+
+;; 
+(setq shell-file-name "/bin/bash")
