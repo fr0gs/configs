@@ -73,6 +73,14 @@
  'handlebars-mode
  'restart-emacs) 
 
+;; Source: http://www.emacswiki.org/emacs-en/download/misc-cmds.el
+;; Reload buffer without confirmation
+(defun revert-buffer-no-confirm ()
+    "Revert buffer without confirmation."
+    (interactive)
+    (revert-buffer t t))
+
+
 (defun my-enable-minor-modes (&optional programming)
    "Enables the following minor modes."
    (interactive "")
@@ -178,5 +186,10 @@
 ;; disable auto indenting
 (setq-default indent-tabs-mode nil)
 
-;; 
+;; this is needed for something I cant remember. HEH
 (setq shell-file-name "/bin/bash")
+
+;; enable showing matching braces and parentheses when writing
+;; functions for example
+(setq show-paren-mode 1)
+(setq show-paren-style 'mixed) ; for braces and parentheses both
