@@ -20,6 +20,9 @@
 (ido-mode 1)
 (ido-everywhere 1)
 (setq ido-enable-flex-matching t)
+(add-hook 'ido-setup-hook 
+    (lambda () 
+      (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
 
 ;; smex
 (require 'smex)
@@ -35,10 +38,10 @@
 ;; js2-mode default for javascript files
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-
-(add-hook 'ido-setup-hook 
-    (lambda () 
-      (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
+;; autopair to automatically round with parentheses marked regions
+;(add-to-list 'load-path "/path/to/autopair") ;; comment if autopair.el is in standard load path 
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
 
 
 (defun ensure-package-installed (&rest packages)
@@ -71,7 +74,8 @@
  'web-mode
  'queue
  'handlebars-mode
- 'restart-emacs) 
+ 'restart-emacs
+ 'autopair) 
 
 ;; Source: http://www.emacswiki.org/emacs-en/download/misc-cmds.el
 ;; Reload buffer without confirmation
