@@ -39,7 +39,7 @@
  'ido
  'smex
  'neotree
- 'suscolors-theme
+ 'badwolf-theme
  'js2-mode
  'web-mode
  'queue
@@ -166,10 +166,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (suscolors)))
+ '(custom-enabled-themes (quote (badwolf)))
  '(custom-safe-themes
    (quote
-    ("0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
+    ("30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
  '(ember-keymap-prefix "c")
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t))
