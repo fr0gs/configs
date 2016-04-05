@@ -14,36 +14,6 @@
 ;; curiously, if this call goes before 
 (package-initialize)
 
-;; ido-mode
-;; fancy buffer switching
-(require 'ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(setq ido-enable-flex-matching t)
-(add-hook 'ido-setup-hook 
-    (lambda () 
-      (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
-
-;; smex
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
-;; neotree (tree view)
-;(add-to-list 'load-path "/some/path/neotree")
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-
-;; js2-mode default for javascript files
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-
-;; autopair to automatically round with parentheses marked regions
-;(add-to-list 'load-path "/path/to/autopair") ;; comment if autopair.el is in standard load path 
-(require 'autopair)
-(autopair-global-mode) ;; enable autopair in all buffers
-
-
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not. 
    Return a list of installed packages or nil for every skipped package."
@@ -76,6 +46,36 @@
  'handlebars-mode
  'restart-emacs
  'autopair) 
+
+;; ido-mode
+;; fancy buffer switching
+(require 'ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(setq ido-enable-flex-matching t)
+(add-hook 'ido-setup-hook 
+    (lambda () 
+      (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
+
+;; smex
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; neotree (tree view)
+;(add-to-list 'load-path "/some/path/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+;; js2-mode default for javascript files
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; autopair to automatically round with parentheses marked regions
+;(add-to-list 'load-path "/path/to/autopair") ;; comment if autopair.el is in standard load path 
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
+
 
 ;; Source: http://www.emacswiki.org/emacs-en/download/misc-cmds.el
 ;; Reload buffer without confirmation
