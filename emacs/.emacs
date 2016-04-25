@@ -1,6 +1,12 @@
 ;; remove all the initial blabla messages
 (setq inhibit-startup-message t)
 
+;; disable auto indenting
+(setq-default indent-tabs-mode t)
+
+;; set default tab width (will be overwritten by major modes)
+(setq tab-width 2) 
+
 ;; add ELPA package archive package
 (require 'package)
 (add-to-list 'package-archives
@@ -44,6 +50,7 @@
  'web-mode
  'queue
  'handlebars-mode
+ 'coffee-mode
  'restart-emacs
  'autopair) 
 
@@ -166,10 +173,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (badwolf)))
+ '(custom-enabled-themes (quote (meacupla)))
  '(custom-safe-themes
    (quote
-    ("30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
+    ("12b7ed9b0e990f6d41827c343467d2a6c464094cbcc6d0844df32837b50655f9" "9a77026c04c2b191637239d0a2374b2cf019eb457a216f6ecc391a4a42f6ed08" "30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
  '(ember-keymap-prefix "c")
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t))
@@ -186,9 +193,6 @@
 ;(add-to-list  'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
 
 (global-set-key (kbd "C-c s") 'magit-status)
-
-;; disable auto indenting
-(setq-default indent-tabs-mode nil)
 
 ;; this is needed for something I cant remember. HEH
 (setq shell-file-name "/bin/bash")
