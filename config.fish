@@ -6,3 +6,11 @@ set -g fish_greeting ""
 
 # set React editor
 set -g -x REACT_EDITOR emacs24
+
+# start tmux on every login in fish shell
+#if status --is-interactive
+#   if test -z (echo $TMUX)
+#      tmux
+#    end
+#end
+  
