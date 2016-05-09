@@ -46,8 +46,8 @@
  'smex
  'neotree
  'badwolf-theme
- 'meacupla-theme
  'js2-mode
+ 'markdown-mode
  'web-mode
  'queue
  'handlebars-mode
