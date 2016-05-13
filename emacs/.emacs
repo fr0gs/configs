@@ -41,6 +41,7 @@
 ;; List of packages to be verified and installed
 ;; goes here automatically
 (ensure-package-installed
+ 'expand-region
  'minimap
  'auto-complete
  'magit
@@ -77,6 +78,10 @@
 ;(add-to-list 'load-path "/some/path/neotree")
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+
+;; expand-region, expands regions semantically (selecting)
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; js2-mode default for javascript files
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -208,3 +213,4 @@
 
 ;; set minimap by default to open when opening projects
 (minimap-mode 1)
+
