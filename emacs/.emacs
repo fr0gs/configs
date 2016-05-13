@@ -41,6 +41,8 @@
 ;; List of packages to be verified and installed
 ;; goes here automatically
 (ensure-package-installed
+ 'minimap
+ 'auto-complete
  'magit
  'ido
  'smex
@@ -202,3 +204,7 @@
 ;; functions for example
 (setq show-paren-mode 1)
 (setq show-paren-style 'mixed) ; for braces and parentheses both
+
+
+;; set minimap by default to open when opening projects
+(minimap-mode 1)
