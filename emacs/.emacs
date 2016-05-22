@@ -42,13 +42,13 @@
 ;; goes here automatically
 (ensure-package-installed
  'expand-region
- 'minimap
  'auto-complete
  'magit
  'ido
  'smex
  'neotree
- 'badwolf-theme
+ 'tide
+ 'colonoscopy-theme
  'js2-mode
  'markdown-mode
  'web-mode
@@ -57,6 +57,28 @@
  'coffee-mode
  'restart-emacs
  'autopair) 
+
+
+
+;; typescript support
+(require 'tide)
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (tide-setup)
+            (flycheck-mode +1)
+            (setq flycheck-check-syntax-automatically '(save mode-enabled))
+            (eldoc-mode +1)))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+;; format options
+(setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
+
+
 
 ;; ido-mode
 ;; fancy buffer switching
@@ -154,6 +176,7 @@
 ;; Goto-line short-cut key                                                                                                   
 (global-set-key (kbd "C-c l") 'goto-line)
 
+
 ;; (require 'web-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -209,8 +232,3 @@
 ;; functions for example
 (setq show-paren-mode 1)
 (setq show-paren-style 'mixed) ; for braces and parentheses both
-
-
-;; set minimap by default to open when opening projects
-(minimap-mode 1)
-
