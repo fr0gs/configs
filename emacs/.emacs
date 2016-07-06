@@ -55,6 +55,7 @@
  'queue
  'handlebars-mode
  'coffee-mode
+ 'lua-mode
  'restart-emacs
  'autopair) 
 
