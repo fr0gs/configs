@@ -1,3 +1,9 @@
+;;; package --- Summary
+
+;;; Commentary:
+
+;;; Code:
+
 ;; remove all the initial blabla messages
 (setq inhibit-startup-message t)
 
@@ -21,8 +27,7 @@
 (package-initialize)
 
 (defun ensure-package-installed (&rest packages)
-  "Assure every package is installed, ask for installation if it’s not. 
-   Return a list of installed packages or nil for every skipped package."
+  "Assure every package is installed, ask for installation if it’s not.  Return a list of installed PACKAGES or nil for every skipped package."
   (mapcar
    (lambda (package)
      ;; (package-installed-p 'evil)
@@ -59,26 +64,29 @@
  'restart-emacs
  'autopair) 
 
-
+;; flycheck support
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; typescript support
 (require 'tide)
 (add-hook 'typescript-mode-hook
-          (lambda ()
-            (tide-setup)
-            (flycheck-mode +1)
-            (setq flycheck-check-syntax-automatically '(save mode-enabled))
-            (eldoc-mode +1)))
+  (lambda ()
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)))
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
 ;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
+;(add-hook 'before-save-hook 'tide-format-before-save)
 
 ;; format options
 (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
 
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 
 ;; ido-mode
@@ -124,7 +132,7 @@
 
 
 (defun my-enable-minor-modes (&optional programming)
-   "Enables the following minor modes."
+   "Enables the following minor modes for PROGRAMMING."
    (interactive "")
    (scroll-bar-mode 0)
    (tool-bar-mode 0)
@@ -134,7 +142,7 @@
    (linum-mode t))
 
 (defun my-enable-minor-prog-modes ()
-  "enables minor modes for programming"
+  "Enables minor modes for PROGRAMMING."
   (my-enable-minor-modes 1))
 
 (add-hook 'prog-mode-hook 'my-enable-minor-prog-modes)
@@ -205,10 +213,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (colonoscopy)))
+ '(custom-enabled-themes (quote (gotham)))
  '(custom-safe-themes
    (quote
-    ("ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" "12b7ed9b0e990f6d41827c343467d2a6c464094cbcc6d0844df32837b50655f9" "9a77026c04c2b191637239d0a2374b2cf019eb457a216f6ecc391a4a42f6ed08" "30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
+    ("590759adc4a5bf7a183df81654cce13b96089e026af67d92b5eec658fb3fe22f" "ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" "12b7ed9b0e990f6d41827c343467d2a6c464094cbcc6d0844df32837b50655f9" "9a77026c04c2b191637239d0a2374b2cf019eb457a216f6ecc391a4a42f6ed08" "30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
  '(ember-keymap-prefix "c")
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t))
@@ -233,3 +241,6 @@
 ;; functions for example
 (setq show-paren-mode 1)
 (setq show-paren-style 'mixed) ; for braces and parentheses both
+
+;;; .emacs ends here
+
