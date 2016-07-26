@@ -47,7 +47,7 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("urxvtd")
+-- run_once("urxvtd")
 run_once("unclutter -root")
 -- }}}
 
@@ -59,7 +59,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/multicolor/theme.lu
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "mate-terminal" or "xterm"
+terminal   = "gnome-terminal" or "xterm"
 editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -82,17 +82,11 @@ local layouts = {
     awful.layout.suit.max,
 }
 
--- quake terminal
-local quakeconsole = {}
-for s = 1, screen.count() do
-   quakeconsole[s] = lain.util.quake({ app = terminal })
-end
--- }}}
 
 -- {{{ Tags
 tags = {
-   names = { "web", "term", "docs", "media", "files", "other" },
-   layout = { layouts[1], layouts[3], layouts[4], layouts[1], layouts[7], layouts[1] }
+   names = { "web", "term", "mail", "dev", "skype", "media", "other" },
+   layout = { layouts[1], layouts[3], layouts[4], layouts[3], layouts[7], layouts[3], layouts[4] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
@@ -505,9 +499,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
-
-    -- Dropdown terminal
-    awful.key({ modkey,	          }, "z",      function () quakeconsole[mouse.screen]:toggle() end),
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
