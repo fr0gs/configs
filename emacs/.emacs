@@ -11,7 +11,7 @@
 (setq-default indent-tabs-mode t)
 
 ;; set default tab width (will be overwritten by major modes)
-(setq tab-width 2) 
+(setq tab-width 2)
 
 ;; add ELPA package archive package
 (require 'package)
@@ -23,7 +23,7 @@
 	     '("gnu" . "http://elpa.gnu.org/packages/") t)
 
 ;; prompt for name of a package in 'available' status, downloads and installs it
-;; curiously, if this call goes before 
+;; curiously, if this call goes before
 (package-initialize)
 
 (defun ensure-package-installed (&rest packages)
@@ -33,7 +33,7 @@
      ;; (package-installed-p 'evil)
      (if (package-installed-p package)
          nil
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+       (if (y-or-n-p (format "Package %s is missing.  Install it? " package))
            (package-install package)
          package)))
    packages))
@@ -46,6 +46,7 @@
 ;; List of packages to be verified and installed
 ;; goes here automatically
 (ensure-package-installed
+ 'popup
  'expand-region
  'auto-complete
  'magit
@@ -53,7 +54,7 @@
  'smex
  'neotree
  'tide
- 'colonoscopy-theme
+ 'gotham-theme
  'js2-mode
  'markdown-mode
  'web-mode
@@ -61,8 +62,13 @@
  'handlebars-mode
  'coffee-mode
  'lua-mode
+ 'clojure-mode
+ 'rainbow-delimiters
  'restart-emacs
- 'autopair) 
+ 'autopair)
+
+;; add hook for parenthesis highlight in clojure mode
+(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
 ;; flycheck support
 (require 'flycheck)
@@ -95,8 +101,8 @@
 (ido-mode 1)
 (ido-everywhere 1)
 (setq ido-enable-flex-matching t)
-(add-hook 'ido-setup-hook 
-    (lambda () 
+(add-hook 'ido-setup-hook
+    (lambda ()
       (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
 
 ;; smex
@@ -118,7 +124,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; autopair to automatically round with parentheses marked regions
-;(add-to-list 'load-path "/path/to/autopair") ;; comment if autopair.el is in standard load path 
+;(add-to-list 'load-path "/path/to/autopair") ;; comment if autopair.el is in standard load path
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers
 
@@ -182,7 +188,7 @@
   (eval-after-load "ido"
     '(define-key ido-common-completion-map "\C-m" 'ido-smart-select-text))
 
-;; Goto-line short-cut key                                                                                                   
+;; Goto-line short-cut key
 (global-set-key (kbd "C-c l") 'goto-line)
 
 
@@ -243,4 +249,3 @@
 (setq show-paren-style 'mixed) ; for braces and parentheses both
 
 ;;; .emacs ends here
-
