@@ -54,6 +54,7 @@
  'smex
  'neotree
  'tide
+ 'anti-zenburn-theme
  'jazz-theme
  'js2-mode
  'markdown-mode
@@ -105,7 +106,7 @@
     (lambda ()
       (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
 
-;; smex
+;; smex builds on top of IDO, providing an interface to the most recently used commands.
 (require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
@@ -219,10 +220,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(custom-enabled-themes (quote (jazz)))
+ '(custom-enabled-themes (quote (anti-zenburn)))
  '(custom-safe-themes
    (quote
-    ("c39ae5721fce3a07a27a685c08e4b856a13780dbc755a569bb4393c932f226d7" "6bb466c89b7e3eedc1f19f5a0cfa53be9baf6077f4d4a6f9b5d087f0231de9c8" "590759adc4a5bf7a183df81654cce13b96089e026af67d92b5eec658fb3fe22f" "ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" "12b7ed9b0e990f6d41827c343467d2a6c464094cbcc6d0844df32837b50655f9" "9a77026c04c2b191637239d0a2374b2cf019eb457a216f6ecc391a4a42f6ed08" "30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
+    ("5cd0afd0ca01648e1fff95a7a7f8abec925bd654915153fb39ee8e72a8b56a1f" "c39ae5721fce3a07a27a685c08e4b856a13780dbc755a569bb4393c932f226d7" "6bb466c89b7e3eedc1f19f5a0cfa53be9baf6077f4d4a6f9b5d087f0231de9c8" "590759adc4a5bf7a183df81654cce13b96089e026af67d92b5eec658fb3fe22f" "ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" "12b7ed9b0e990f6d41827c343467d2a6c464094cbcc6d0844df32837b50655f9" "9a77026c04c2b191637239d0a2374b2cf019eb457a216f6ecc391a4a42f6ed08" "30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
  '(ember-keymap-prefix "c")
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t))
@@ -234,10 +235,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; ember-mode
-;(add-to-list  'auto-mode-alist '("\\.coffee\\'" . ember-mode))
-;(add-to-list  'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
-
 (global-set-key (kbd "C-c s") 'magit-status)
 
 ;; this is needed for something I cant remember. HEH
@@ -247,5 +244,12 @@
 ;; functions for example
 (setq show-paren-mode 1)
 (setq show-paren-style 'mixed) ; for braces and parentheses both
+
+;; activate nyan-mode by default
+;; if it does not load, change the path to the new version.
+(add-to-list 'load-path "~/.emacs.d/elpa/nyan-mode-20170423.40/")
+(require 'nyan-mode)
+(nyan-mode)
+
 
 ;;; .emacs ends here
