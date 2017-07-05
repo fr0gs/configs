@@ -251,5 +251,11 @@
 (require 'nyan-mode)
 (nyan-mode)
 
+;; Avoid recentering on emacs when reaching end of the buffer
+;; in order to have a smooth scrolling experience.
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq auto-window-vscroll nil)
+
 
 ;;; .emacs ends here
