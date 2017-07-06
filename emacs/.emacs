@@ -50,7 +50,7 @@
  'expand-region
  'auto-complete
  'magit
- 'ido
+ 'helm
  'smex
  'neotree
  'tide
@@ -95,16 +95,15 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
+;; helm (smart buffer & search)
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
-;; ido-mode
-;; fancy buffer switching
-(require 'ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(setq ido-enable-flex-matching t)
-(add-hook 'ido-setup-hook
-    (lambda ()
-      (define-key ido-completion-map "\r" 'ido-exit-minibuffer)))
+(with-eval-after-load 'helm
+  (define-key helm-map (kbd "TAB") #'helm-maybe-exit-minibuffer))
+
 
 ;; smex builds on top of IDO, providing an interface to the most recently used commands.
 (require 'smex)
@@ -159,35 +158,6 @@
 (add-hook 'ttl-mode 'my-enable-minor-modes)
 (add-hook 'sparql-mode 'my-enable-minor-modes)
 
-
-(defun ido-smart-select-text ()
-    "Select the current completed item.  Do NOT descend into directories."
-    (interactive)
-    (when (and (or (not ido-require-match)
-                   (if (memq ido-require-match
-                             '(confirm confirm-after-completion))
-                       (if (or (eq ido-cur-item 'dir)
-                               (eq last-command this-command))
-                           t
-                         (setq ido-show-confirm-message t)
-                         nil))
-                   (ido-existing-item-p))
-               (not ido-incomplete-regexp))
-      (when ido-current-directory
-        (setq ido-exit 'takeprompt)
-        (unless (and ido-text (= 0 (length ido-text)))
-          (let ((match (ido-name (car ido-matches))))
-            (throw 'ido
-                   (setq ido-selected
-                         (if match
-                             (replace-regexp-in-string "/\\'" "" match)
-                           ido-text)
-                         ido-text ido-selected
-                         ido-final-text ido-text)))))
-      (exit-minibuffer)))
-  
-  (eval-after-load "ido"
-    '(define-key ido-common-completion-map "\C-m" 'ido-smart-select-text))
 
 ;; Goto-line short-cut key
 (global-set-key (kbd "C-c l") 'goto-line)
