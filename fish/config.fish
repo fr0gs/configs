@@ -14,6 +14,7 @@ set -gx PATH $PATH "$HOME/.rbenv/plugins/ruby-build/bin"
 # For the base16 colorscheme of omf (bobthefish)
 set -g theme_powerline_fonts no
 set -g theme_color_scheme base16
+set -g theme_display_date no
 
 
 # Load Oh My Fish configuration.
