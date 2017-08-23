@@ -11,9 +11,10 @@ set -gx PATH $PATH "$HOME/.rbenv/plugins/ruby-build/bin"
 
 #status --is-interactive; and source (rbenv init -|psub)
 
-# For the base16 colorscheme of omf (bobthefish)
+# For the colorscheme of omf (bobthefish)
+#https://github.com/oh-my-fish/theme-bobthefish
 set -g theme_powerline_fonts no
-set -g theme_color_scheme base16
+set -g theme_color_scheme zenburn
 set -g theme_display_date no
 
 
