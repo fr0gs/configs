@@ -1,16 +1,20 @@
-# Path to the Android SDK
-set -g -x ANDROID_HOME /opt/android-sdk-linux
+# Path to Oh My Fish install.
+set -q XDG_DATA_HOME
+  and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
+  or set -gx OMF_PATH "$HOME/.local/share/omf"
 
-# Remove fish greeting
-set -g fish_greeting ""
+set -gx PATH $PATH "$HOME/.rbenv/bin"
+set -gx PATH $PATH "$HOME/.rbenv/plugins/ruby-build/bin"
 
-# set React editor
-set -g -x REACT_EDITOR emacs24
+# Load rbenv automatically by appending
+# the following to ~/.config/fish/config.fish:
 
-# start tmux on every login in fish shell
-#if status --is-interactive
-#   if test -z (echo $TMUX)
-#      tmux
-#    end
-#end
-  
+#status --is-interactive; and source (rbenv init -|psub)
+
+# For the base16 colorscheme of omf (bobthefish)
+set -g theme_powerline_fonts no
+set -g theme_color_scheme base16
+
+
+# Load Oh My Fish configuration.
+source $OMF_PATH/init.fish
