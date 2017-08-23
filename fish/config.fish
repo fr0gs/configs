@@ -14,7 +14,7 @@ set -gx PATH $PATH "$HOME/.rbenv/plugins/ruby-build/bin"
 # For the colorscheme of omf (bobthefish)
 #https://github.com/oh-my-fish/theme-bobthefish
 set -g theme_powerline_fonts no
-set -g theme_color_scheme zenburn
+set -g theme_color_scheme dark 
 set -g theme_display_date no
 
 
