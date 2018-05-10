@@ -15,12 +15,20 @@
 
 ;; add ELPA package archive package
 (require 'package)
+
 (add-to-list 'package-archives
             '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
 	     '("marmalade". "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
 	     '("gnu" . "http://elpa.gnu.org/packages/") t)
+
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
+
 
 ;; prompt for name of a package in 'available' status, downloads and installs it
 ;; curiously, if this call goes before
@@ -63,12 +71,19 @@
  'coffee-mode
  'lua-mode
  'clojure-mode
- 'rainbow-delimiters
  'restart-emacs
+ 'slime
+ 'highlight-parentheses
  'autopair)
 
-;; add hook for parenthesis highlight in clojure mode
-(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+
+;; Set your lisp system and, optionally, some contribs
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq slime-contribs '(slime-fancy))
+
+
+;; flymd (markdown live preview)
+(require 'flymd)
 
 ;; flycheck support
 (require 'flycheck)
@@ -127,6 +142,19 @@
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers
 
+(add-hook 'emacs-lisp-mode-hook
+          '(lambda ()
+             (highlight-parentheses-mode)
+             (setq autopair-handle-action-fns
+                   (list 'autopair-default-handle-action
+                         '(lambda (action pair pos-before)
+                            (hl-paren-color-update))))))
+
+(define-globalized-minor-mode global-highlight-parentheses-mode
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
 
 ;; Source: http://www.emacswiki.org/emacs-en/download/misc-cmds.el
 ;; Reload buffer without confirmation
