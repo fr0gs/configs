@@ -15,5 +15,9 @@ set -gx PATH $PATH "$HOME/.rbenv/plugins/ruby-build/bin"
 set -g -x PYENV_ROOT "$HOME/.pyenv"
 set -g -x PATH $PATH "$PYENV_ROOT/bin"
 
+# Load pyenv automatically with fish shell
+status --is-interactive; and source (pyenv init -|psub)
+
+
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
