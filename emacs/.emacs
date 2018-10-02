@@ -62,6 +62,7 @@
  'smex
  'neotree
  'autumn-light-theme
+ 'avk-emacs-themes
  'docker-compose-mode
  'js2-mode
  'markdown-mode
