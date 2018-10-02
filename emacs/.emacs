@@ -66,13 +66,15 @@
  'js2-mode
  'markdown-mode
  'web-mode
- 'queue
+ 'nyan-mode
  'handlebars-mode
  'coffee-mode
  'lua-mode
  'clojure-mode
  'restart-emacs
  'slime
+ 'flymd
+ 'flycheck
  'highlight-parentheses
  'autopair)
 
@@ -85,29 +87,10 @@
 ;; flymd (markdown live preview)
 (require 'flymd)
 
-;; flycheck support
+;; flycheck support (on the fly syntax check)
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; typescript support
-(require 'tide)
-(add-hook 'typescript-mode-hook
-  (lambda ()
-    (tide-setup)
-    (flycheck-mode +1)
-    (setq flycheck-check-syntax-automatically '(save mode-enabled))
-    (eldoc-mode +1)))
-
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-;(add-hook 'before-save-hook 'tide-format-before-save)
-
-;; format options
-(setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
-
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; helm (smart buffer & search)
 (require 'helm-config)
@@ -135,6 +118,7 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; js2-mode default for javascript files
+(require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; autopair to automatically round with parentheses marked regions
@@ -220,9 +204,9 @@
  '(custom-enabled-themes (quote (autumn-light)))
  '(custom-safe-themes
    (quote
-    ("55d31108a7dc4a268a1432cd60a7558824223684afecefa6fae327212c40f8d3" "5cd0afd0ca01648e1fff95a7a7f8abec925bd654915153fb39ee8e72a8b56a1f" "c39ae5721fce3a07a27a685c08e4b856a13780dbc755a569bb4393c932f226d7" "6bb466c89b7e3eedc1f19f5a0cfa53be9baf6077f4d4a6f9b5d087f0231de9c8" "590759adc4a5bf7a183df81654cce13b96089e026af67d92b5eec658fb3fe22f" "ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" "12b7ed9b0e990f6d41827c343467d2a6c464094cbcc6d0844df32837b50655f9" "9a77026c04c2b191637239d0a2374b2cf019eb457a216f6ecc391a4a42f6ed08" "30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
+    ("3e83abe75cebf5621e34ce1cbe6e12e4d80766bed0755033febed5794d0c69bf" "55d31108a7dc4a268a1432cd60a7558824223684afecefa6fae327212c40f8d3" "5cd0afd0ca01648e1fff95a7a7f8abec925bd654915153fb39ee8e72a8b56a1f" "c39ae5721fce3a07a27a685c08e4b856a13780dbc755a569bb4393c932f226d7" "6bb466c89b7e3eedc1f19f5a0cfa53be9baf6077f4d4a6f9b5d087f0231de9c8" "590759adc4a5bf7a183df81654cce13b96089e026af67d92b5eec658fb3fe22f" "ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" "12b7ed9b0e990f6d41827c343467d2a6c464094cbcc6d0844df32837b50655f9" "9a77026c04c2b191637239d0a2374b2cf019eb457a216f6ecc391a4a42f6ed08" "30ba590271e63571536bcded60eca30e0645011a860be1c987fc6476c1603f15" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "0a5e87ac98b0adfe4e12356fff24d49ffbbe5ef0aa8290752c184e6857d70558" "98a619757483dc6614c266107ab6b19d315f93267e535ec89b7af3d62fb83cad" "357d5abe6f693f2875bb3113f5c031b7031f21717e8078f90d9d9bc3a14bcbd8" "40664277ccd962bc373bff67affb4efa7c9bf3dabd81787e6e08fe080ba9645f" default)))
  '(ember-keymap-prefix "c")
- '(js2-basic-offset 2)
+ '(js-indent-level 2)
  '(js2-bounce-indent-p t))
 
 (custom-set-faces
