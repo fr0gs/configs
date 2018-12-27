@@ -108,6 +108,9 @@
   (define-key helm-map (kbd "TAB") #'helm-maybe-exit-minibuffer))
 
 
+(require 'helm-ag)
+(global-set-key (kbd "C-x C-g") 'helm-do-ag)
+
 ;; smex builds on top of IDO, providing an interface to the most recently used commands.
 (require 'smex)
 (smex-initialize)
