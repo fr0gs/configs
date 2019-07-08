@@ -5,7 +5,10 @@ set -q XDG_DATA_HOME
 
 
 ### Set NPM_TOKEN in order to access a private repository.
-set -x NPM_TOKEN (cat (echo $HOME)/.npmrc| grep npm.famoco.com/repository/npm-all | egrep -o "authToken=(.+)" | cut -d= -f2)
+#set -x NPM_TOKEN (cat (echo $HOME)/.npmrc| grep npm.famoco.com/repository/npm-all | egrep -o "authToken=(.+)" | cut -d= -f2)
+
+### Add NPM bin path to PATH in fish (to access global packages)
+set PATH ~/.npm/bin $PATH
 
 ### Environment variables for rbenv (managing Ruby versions)
 #set -gx PATH $PATH "$HOME/.rbenv/bin"
@@ -16,12 +19,12 @@ set -x NPM_TOKEN (cat (echo $HOME)/.npmrc| grep npm.famoco.com/repository/npm-al
 #status --is-interactive; and source (rbenv init -|psub)
 
 ### Environment variables for pyenv (managing Python versions)
-set -g -x PYENV_ROOT "$HOME/.pyenv"
-set -g -x PATH $PATH "$PYENV_ROOT/bin"
+#set -g -x PYENV_ROOT "$HOME/.pyenv"
+#set -g -x PATH $PATH "$PYENV_ROOT/bin"
 
 # Load pyenv automatically with fish shell
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and . (pyenv virtualenv-init -|psub)
+#status --is-interactive; and source (pyenv init -|psub)
+#status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
 
 # Load Oh My Fish configuration.
