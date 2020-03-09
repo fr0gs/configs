@@ -19,6 +19,11 @@ set -x NPM_TOKEN (cat (echo $HOME)/.npmrc| grep npm.famoco.com/repository/npm-al
 set -g -x PYENV_ROOT "$HOME/.pyenv"
 set -g -x PATH $PATH "$PYENV_ROOT/bin"
 
+
+### Add Go environment variables
+set -g -x GOPATH "$HOME/go"
+set -g -x PATH "$PATH:/usr/local/go/bin:$GOPATH/bin"
+
 # Load pyenv automatically with fish shell
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and . (pyenv virtualenv-init -|psub)

@@ -238,7 +238,7 @@
  '(js2-bounce-indent-p t)
  '(package-selected-packages
    (quote
-    (helm-ag-r helm-ag dockerfile-mode fish-mode autopair highlight-parentheses flycheck flymd xref-js2 web-mode smex slime restart-emacs nyan-mode neotree markdown-mode magit lua-mode js2-refactor helm handlebars-mode expand-region docker-compose-mode coffee-mode clojure-mode avk-emacs-themes autumn-light-theme auto-complete))))
+    (swap-regions helm-ag-r helm-ag dockerfile-mode fish-mode autopair highlight-parentheses flycheck flymd xref-js2 web-mode smex slime restart-emacs nyan-mode neotree markdown-mode magit lua-mode js2-refactor helm handlebars-mode expand-region docker-compose-mode coffee-mode clojure-mode avk-emacs-themes autumn-light-theme auto-complete))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
