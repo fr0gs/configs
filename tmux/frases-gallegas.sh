@@ -3,6 +3,7 @@
 
 # Array with expressions
 EXPRESSIONS=(
+    "Marcho que teño que marchar"
     "Nunca choveu que non escampara"
     "Bueno caraio bueno"
     "Vou pegar unha ducha que así xa quedo duchado"
@@ -10,6 +11,45 @@ EXPRESSIONS=(
     "Moito ollo"
     "Un minuto de recreo"
     "Me echaron droja en el colacao"
+    "Con sentidiño"
+    "Maloserá"
+    "Agora xa foi"
+    "Xente nova e leña verde todo é fume"
+    "Chégalle ben home"
+    "Quen ten cú ten medo"
+    "¡Vas caer!"
+    "Tranquilo que do chan abaixo non pasas"
+    "E ti..¿de quén ves sendo?"
+    "Cada can que lamba o seu carallo"
+    "Amiguiños si, pero a vaquiña polo que vale"
+    "Me cago na cona que te pariu"
+    "Fé en Dios e ferro a fondo"
+    "Quen dixo medo habendo hospitais"
+    "Non deixar a vergoña do galego"
+    "Vai rañala"
+    "Morra o conto"
+    "Polo pan baila o can"
+    "Traballa arredemo"
+    "Tose pr'alá"
+    "Xa é moita hora"
+    "Chegar e encher"
+    "Que non falte traballo"
+    "Onde vai!"
+    "Xa choveu"
+    "Tarde piaches"
+    "Caen chuzos de punta"
+    "A boa coella moitos pretendentes"
+    "Aínda que me botes os cans ó rabo, léveme o demo se deixo o nabo"
+    "Fai o que o crego dixere e non fagas o que el fixere"
+    "Entre pais e fillos non metas os fuciños"
+    "A mellor leña está onde non entra o carro"
+    "Á auga de correr e ós cans de ladrar, non llo podes privar"
+    "A auga todo o lava, agás a mala fada"
+    "As visitas son como os peixes, que ós tres días feden"
+    "Polo san Martiño, trompos ó camiño"
+    "Non hai colocación sen levar un bo xamón"
+    "Vale mais pouco pecar que moito confesar"
+    "Vaiche boa"
 )
 
 # Seed random generator
@@ -35,8 +75,9 @@ else
     # Get current expression.
     CURRENT_EXPRESSION=$(cat /tmp/frasegallega.current)
 
+
     # Each 15 minutes
-    if [[ $MINUTE =~ 00|15|30|45 ]] && [[ $SECOND =~ ^0[0-6]$ ]]; then
+    if [[ $MINUTE =~ 00|15|30|45 ]] && [[ $SECOND =~ ^0[0-3]$ ]]; then
 
 	# Get random expression.
 	SELECTED_EXPRESSION=${EXPRESSIONS[$RANDOM % ${#EXPRESSIONS[@]} ]}
